@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Overview</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; background: #f4f7f6; color: #333; }
+        
+        /* Header Section */
+        header { text-align: center; padding: 60px 20px; background: #fff; border-bottom: 1px solid #eee; }
+        header h1 { margin: 0; font-size: 2.5rem; color: #2c3e50; }
+        header p { color: #7f8c8d; font-size: 1.1rem; }
+
+        /* Tab Navigation */
+        .tabs { display: flex; justify-content: center; background: #fff; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .tab-btn { padding: 15px 25px; cursor: pointer; border: none; background: none; font-weight: 600; color: #95a5a6; transition: 0.3s; }
+        .tab-btn.active { color: #3498db; border-bottom: 3px solid #3498db; }
+
+        /* Content Sections */
+        .container { max-width: 800px; margin: 30px auto; padding: 0 20px; }
+        .tab-content { display: none; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .tab-content.active { display: block; }
+
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-card { padding: 15px; background: #f8f9fa; border-radius: 6px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>[Your Name]</h1>
+        <p>Software Developer | Entrepreneur | Explorer</p>
+    </header>
+
+    <nav class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'education')">Education</button>
+        <button class="tab-btn" onclick="openTab(event, 'health')">Health</button>
+        <button class="tab-btn" onclick="openTab(event, 'hobbies')">Hobbies</button>
+    </nav>
+
+    <div class="container">
+        <div id="education" class="tab-content active">
+            <h2>Educational Background</h2>
+            <p><strong>Degree/Certification</strong> - Institution Name</p>
+            <p>Brief description of what you studied or key achievements.</p>
+        </div>
+
+        <div id="health" class="tab-content">
+            <h2>Health Overview</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <h3>Height</h3>
+                    <p>180 cm</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Weight</h3>
+                    <p>75 kg</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="hobbies" class="tab-content">
+            <h2>Interests & Hobbies</h2>
+            <ul>
+                <li>Coding & Automation</li>
+                <li>Strategic Gaming</li>
+                <li>Traveling</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
